@@ -41,31 +41,34 @@ except Exception as e:
 st.sidebar.header("📥 INPUT PARAMETERS")
 
 st.sidebar.subheader("1. Thickness & Effective Depth")
-# Đưa tc và tECC lên đầu tiên để làm cơ sở tính toán
-tc = st.sidebar.slider("Concrete thickness - tc (mm)", 100.0, 160.0, 100.0)
-tECC = st.sidebar.slider("ECC thickness - tECC (mm)", 30.0, 90.0, 30.0)
+# Đã xóa .0 để lấy số nguyên
+tc = st.sidebar.slider("Concrete thickness - tc (mm)", 100, 160, 100)
+tECC = st.sidebar.slider("ECC thickness - tECC (mm)", 30, 90, 30)
 
-# Khóa cứng lớp bảo vệ và tự động tính d
-cover = 15.0 
-d = tc - cover # Tổng chiều dày trừ đi lớp bảo vệ (có thể sửa nếu công thức của bạn là d = tc - cover)
-st.sidebar.info(f"💡 Slab's effective height (d) auto-calculated: **{d:.1f} mm**")
+cover = 15 # Lớp bảo vệ số nguyên
+d = tc - cover
+st.sidebar.info(f"💡 Slab's effective height (d) auto-calculated: **{d} mm**")
 
 st.sidebar.subheader("2. Geometry Configuration")
-c1 = st.sidebar.slider("Column's short side dimension - c1 (mm)", 150.0, 250.0, 150.0)
+# c1 lấy số nguyên, c2/c1 và L/d giữ nguyên thập phân
+c1 = st.sidebar.slider("Column's short side dimension - c1 (mm)", 150, 250, 150)
 c2_c1 = st.sidebar.slider("Long-to-short side dimension ratio - c2/c1", 1.0, 1.67, 1.0)
 L_d = st.sidebar.slider("Shear span to effective depth ratio - L/d", 6.5, 11.2, 8.9)
 alpha_s = st.sidebar.selectbox("Loading location - αs (2: Corner, 3: Edge, 4: Interior)", [2.0, 3.0, 4.0], index=2)
 
 st.sidebar.subheader("3. Normal Concrete (NC) Properties")
-fc_c = st.sidebar.slider("Concrete compressive strength - f'c,c (MPa)", 30.0, 60.0, 30.0)
-Ec_c = st.sidebar.slider("Elastic modulus of concrete - Ec,c (MPa)", 25000.0, 37000.0, 28946.0)
+# Đã xóa .0 để lấy số nguyên
+fc_c = st.sidebar.slider("Concrete compressive strength - f'c,c (MPa)", 30, 60, 30)
+Ec_c = st.sidebar.slider("Elastic modulus of concrete - Ec,c (MPa)", 25000, 37000, 28946)
 
 st.sidebar.subheader("4. ECC Layer Properties")
-fc_ECC = st.sidebar.slider("ECC compressive strength - f'c,ECC (MPa)", 31.0, 60.0, 45.0)
-Ec_ECC = st.sidebar.slider("Elastic modulus of ECC - Ec,ECC (MPa)", 14000.0, 20000.0, 17000.0)
+# Đã xóa .0 để lấy số nguyên
+fc_ECC = st.sidebar.slider("ECC compressive strength - f'c,ECC (MPa)", 31, 60, 45)
+Ec_ECC = st.sidebar.slider("Elastic modulus of ECC - Ec,ECC (MPa)", 14000, 20000, 17000)
 
 st.sidebar.subheader("5. Reinforcement Details")
-fy = st.sidebar.slider("Rebar yield strength - fy (MPa)", 456.0, 750.0, 494.0)
+# fy lấy số nguyên, muy giữ nguyên thập phân
+fy = st.sidebar.slider("Rebar yield strength - fy (MPa)", 456, 750, 494)
 mu = st.sidebar.slider("Reinforcement ratio - μ (%)", 1.2, 2.5, 1.49)
 
 # 4. DATA PROCESSING & PREDICTION
