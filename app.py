@@ -57,14 +57,21 @@ L_d = st.sidebar.slider("Shear span to effective depth ratio - L/d", 6.5, 11.2, 
 alpha_s = st.sidebar.selectbox("Loading location - αs (2: Corner, 3: Edge, 4: Interior)", [2.0, 3.0, 4.0], index=2)
 
 st.sidebar.subheader("3. Normal Concrete (NC) Properties")
-# Đã xóa .0 để lấy số nguyên
+# Chỉ giữ lại slider cho cường độ nén
 fc_c = st.sidebar.slider("Concrete compressive strength - f'c,c (MPa)", 30, 60, 30)
-Ec_c = st.sidebar.slider("Elastic modulus of concrete - Ec,c (MPa)", 25000, 37000, 28946)
+
+# Tự động tính toán Ec_c theo công thức ACI 318-19
+Ec_c = int(4700 * np.sqrt(fc_c))
+st.sidebar.info(f"💡 Elastic modulus of concrete - Ec,c auto-calculated: **{Ec_c}** MPa")
 
 st.sidebar.subheader("4. ECC Layer Properties")
-# Đã xóa .0 để lấy số nguyên
+# Chỉ giữ lại slider cho cường độ nén ECC
 fc_ECC = st.sidebar.slider("ECC compressive strength - f'c,ECC (MPa)", 31, 60, 45)
-Ec_ECC = st.sidebar.slider("Elastic modulus of ECC - Ec,ECC (MPa)", 14000, 20000, 17000)
+
+# Tự động tính toán Ec_ECC bằng nội suy tuyến tính từ bộ dữ liệu của bài báo
+# Tương ứng các mốc: 31 MPa -> 14000 MPa, 45 MPa -> 17000 MPa, 60 MPa -> 20000 MPa
+Ec_ECC = int(np.interp(fc_ECC, [31, 45, 60], [14000, 17000, 20000]))
+st.sidebar.info(f"💡 Elastic modulus of ECC - Ec,ECC auto-calculated: **{Ec_ECC}** MPa")
 
 st.sidebar.subheader("5. Reinforcement Details")
 # fy lấy số nguyên, muy giữ nguyên thập phân
