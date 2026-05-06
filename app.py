@@ -50,34 +50,34 @@ d = tc - cover
 st.sidebar.info(f"💡 Slab's effective height (d) auto-calculated: **{d} mm**")
 
 st.sidebar.subheader("2. Geometry Configuration")
-    c1 = st.sidebar.slider("Column's short side dimension - c1 (mm)", 150, 250, 150)
-    c2_c1 = st.sidebar.slider("Long-to-short side dimension ratio - c2/c1", 1.0, 1.67, 1.0)
-    
-    # XÓA SLIDER L/d. Tính tự động vì L = 950 mm (cố định theo bài báo)
-    L_d = round(950 / d, 3) 
-    st.sidebar.info(f"💡 Shear span to effective depth ratio (L/d) auto-calculated: **{L_d}**")
+c1 = st.sidebar.slider("Column's short side dimension - c1 (mm)", 150, 250, 150)
+c2_c1 = st.sidebar.slider("Long-to-short side dimension ratio - c2/c1", 1.0, 1.67, 1.0)
 
-    alpha_s = st.sidebar.selectbox("Loading location - αs (2: Corner, 3: Edge, 4: Interior)", [2.0, 3.0, 4.0], index=2)
+# XÓA SLIDER L/d. Tính tự động vì L = 950 mm (cố định theo bài báo)
+L_d = round(950 / d, 3) 
+st.sidebar.info(f"💡 Shear span to effective depth ratio (L/d) auto-calculated: **{L_d}**")
 
-    st.sidebar.subheader("3. Normal Concrete (NC) Properties")
-    fc_c = st.sidebar.slider("Concrete compressive strength - f'c,c (MPa)", 30, 60, 30)
-    # Tự động tính Ec_c
-    Ec_c = int(4700 * np.sqrt(fc_c))
-    st.sidebar.info(f"💡 Elastic modulus of concrete - Ec,c auto-calculated: **{Ec_c} MPa**")
+alpha_s = st.sidebar.selectbox("Loading location - αs (2: Corner, 3: Edge, 4: Interior)", [2.0, 3.0, 4.0], index=2)
 
-    st.sidebar.subheader("4. ECC Layer Properties")
-    # Đưa default về 31 để khớp với sàn U3 gốc
-    fc_ECC = st.sidebar.slider("ECC compressive strength - f'c,ECC (MPa)", 31, 60, 31) 
-    # Tự động tính Ec_ECC
-    Ec_ECC = int(np.interp(fc_ECC, [31, 45, 60], [14000, 17000, 20000]))
-    st.sidebar.info(f"💡 Elastic modulus of ECC - Ec,ECC auto-calculated: **{Ec_ECC} MPa**")
+st.sidebar.subheader("3. Normal Concrete (NC) Properties")
+fc_c = st.sidebar.slider("Concrete compressive strength - f'c,c (MPa)", 30, 60, 30)
+# Tự động tính Ec_c
+Ec_c = int(4700 * np.sqrt(fc_c))
+st.sidebar.info(f"💡 Elastic modulus of concrete - Ec,c auto-calculated: **{Ec_c} MPa**")
 
-    st.sidebar.subheader("5. Reinforcement Details")
-    # Đưa default về 456 để khớp với sàn U3 gốc
-    fy = st.sidebar.slider("Rebar yield strength - fy (MPa)", 456, 750, 456) 
-    
-    # SỬA LỖI NGHIÊM TRỌNG: Thiết lập lại min/max và step cho mu để khớp tuyệt đối với Dataset!
-    mu = st.sidebar.slider("Reinforcement ratio - μ (%)", 1.227, 2.454, 1.227, step=0.001)
+st.sidebar.subheader("4. ECC Layer Properties")
+# Đưa default về 31 để khớp với sàn U3 gốc
+fc_ECC = st.sidebar.slider("ECC compressive strength - f'c,ECC (MPa)", 31, 60, 31) 
+# Tự động tính Ec_ECC
+Ec_ECC = int(np.interp(fc_ECC, [31, 45, 60], [14000, 17000, 20000]))
+st.sidebar.info(f"💡 Elastic modulus of ECC - Ec,ECC auto-calculated: **{Ec_ECC} MPa**")
+
+st.sidebar.subheader("5. Reinforcement Details")
+# Đưa default về 456 để khớp với sàn U3 gốc
+fy = st.sidebar.slider("Rebar yield strength - fy (MPa)", 456, 750, 456) 
+
+# SỬA LỖI NGHIÊM TRỌNG: Thiết lập lại min/max và step cho mu để khớp tuyệt đối với Dataset!
+mu = st.sidebar.slider("Reinforcement ratio - μ (%)", 1.227, 2.454, 1.227, step=0.001)
 
 # 4. DATA PROCESSING & PREDICTION
 input_data = np.array([[d, c1, c2_c1, L_d, alpha_s, fc_c, Ec_c, fc_ECC, Ec_ECC, tc, tECC, fy, mu]])
