@@ -96,9 +96,12 @@ if st.sidebar.button("🚀 RUN PREDICTION", use_container_width=True):
             # 1. Tên nhãn (Label) ở trên cùng
             st.markdown("<p style='font-size: 14px; margin-bottom: 0px; color: #FAFAFA;'>Predicted Punching Shear Capacity (Vp)</p>", unsafe_allow_html=True)
             # 2. Giá trị lực (Value) to và Sai số MAE nhỏ nằm ngang hàng bên phải
+            # 2. Giá trị lực (Value) to và Sai số MAE nhỏ nằm ngang hàng bên phải
             st.markdown(
-            f"<h1 style='margin-top: 0px; margin-bottom: 0px; display: inline-block;'>{prediction_real:.2f} kN</h1>"
-            f"<span style='font-size: 15px; color: #A5A5A5; margin-left: 15px;'>Expected Error (MAE): ± {MAE_error} kN</span>", 
+            f"<div style='display: flex; align-items: baseline; gap: 8px; margin-bottom: 0px;'>"
+            f"<span style='font-size: 40px; font-weight: bold;'>{prediction_real:.2f} kN</span>"
+            f"<span style='font-size: 16px; color: #A5A5A5;'>± {MAE_error} kN Expected Error (MAE)</span>"
+            f"</div>", 
             unsafe_allow_html=True
             )
             # 3. Thông số R² màu xanh lục ở bên dưới
