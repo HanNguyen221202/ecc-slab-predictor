@@ -6,6 +6,7 @@ from tensorflow.keras.models import load_model
 # 1. PAGE CONFIGURATION
 st.set_page_config(page_title="ECC-Slab Predictor", layout="wide")
 st.title("🏗️ Artificial Neural Network (ANN) for Punching Shear Prediction of ECC-Strengthened Flat Slabs")
+st.caption("**A Research Product by:** Cong-Luyen Nguyen, Ngoc Han Nguyen & Duc Nhan Hoang")
 st.markdown("---")
 
 # 2. LOAD MODEL AND SCALER PARAMS
@@ -103,3 +104,4 @@ if st.sidebar.button("🚀 RUN PREDICTION", use_container_width=True):
             st.image(image_path, use_container_width=True, caption="Fig 1. Geometric parameters and SHAP-based feature importance analysis")
         else:
             st.warning("⚠️ Không tìm thấy file ảnh 'slab_shap_info.png' trong thư mục.")
+
