@@ -93,13 +93,12 @@ if st.sidebar.button("🚀 RUN PREDICTION", use_container_width=True):
         col1, col2 = st.columns(2)
         with col1:
             # Thay thế dòng 95 bằng đoạn code này
-        MAE_error = 4.80
-        st.metric(
+            MAE_error = 4.80
+            st.metric(
             label="Predicted Punching Shear Capacity (Vp)", 
             value=f"{prediction_real:.2f} kN", 
             delta=f"Expected Error (MAE): ± {MAE_error} kN",
-            delta_color="off"
-        )
+            delta_color="off")
         with col2:
             st.info(f"Total Slab Thickness: {tc + tECC:.1f} mm")
             
