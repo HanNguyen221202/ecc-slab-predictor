@@ -6,7 +6,7 @@ from tensorflow.keras.models import load_model
 # 1. PAGE CONFIGURATION
 st.set_page_config(page_title="ECC-Slab Predictor", layout="wide")
 st.title("🏗️ Artificial Neural Network (ANN) for Punching Shear Prediction of ECC-Strengthened Flat Slabs")
-st.caption("**A Research Product by:** Cong-Luyen Nguyen, Ngoc Han Nguyen & Duc Nhan Hoang")
+st.caption("**A Research Product by:** Dr. Cong-Luyen Nguyen | Ngoc Han Nguyen & Duc Nhan Hoang")
 st.markdown("---")
 
 # 2. LOAD MODEL AND SCALER PARAMS
@@ -92,7 +92,14 @@ if st.sidebar.button("🚀 RUN PREDICTION", use_container_width=True):
         st.success("Prediction Completed!")
         col1, col2 = st.columns(2)
         with col1:
-            st.metric(label="Predicted Punching Shear Capacity (Vp)", value=f"{prediction_real:.2f} kN", delta="ANN Model (R²=0.99)")
+            # Thay thế dòng 95 bằng đoạn code này
+        MAE_error = 4.80
+        st.metric(
+            label="Predicted Punching Shear Capacity (Vp)", 
+            value=f"{prediction_real:.2f} kN", 
+            delta=f"Expected Error (MAE): ± {MAE_error} kN",
+            delta_color="off"
+        )
         with col2:
             st.info(f"Total Slab Thickness: {tc + tECC:.1f} mm")
             
