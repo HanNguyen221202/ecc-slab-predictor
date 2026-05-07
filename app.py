@@ -6,7 +6,7 @@ from tensorflow.keras.models import load_model
 # 1. PAGE CONFIGURATION
 st.set_page_config(page_title="ECC-Slab Predictor", layout="wide")
 st.title("Artificial Neural Network (ANN) for Punching Shear Prediction of ECC-Strengthened Flat Slabs")
-st.markdown("#####**A Research Product by:** Dr. Cong-Luyen Nguyen | Ngoc Han Nguyen & Duc Nhan Hoang")
+st.markdown("##### **A Research Product by:** Dr. Cong-Luyen Nguyen | Ngoc Han Nguyen & Duc Nhan Hoang")
 st.markdown("---")
 
 # 2. LOAD MODEL AND SCALER PARAMS
