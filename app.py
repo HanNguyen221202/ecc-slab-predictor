@@ -6,7 +6,7 @@ from tensorflow.keras.models import load_model
 # 1. PAGE CONFIGURATION
 st.set_page_config(page_title="ECC-Slab Predictor", layout="wide")
 st.title("🏗️ Artificial Neural Network (ANN) for Punching Shear Prediction of ECC-Strengthened Flat Slabs")
-st.caption("**A Research Product by:** Dr. Cong-Luyen Nguyen | Ngoc Han Nguyen & Duc Nhan Hoang")
+st.markdown("##### 🚀 **A Research Product by:** Dr. Cong-Luyen Nguyen | Ngoc Han Nguyen & Duc Nhan Hoang")
 st.markdown("---")
 
 # 2. LOAD MODEL AND SCALER PARAMS
@@ -92,13 +92,17 @@ if st.sidebar.button("🚀 RUN PREDICTION", use_container_width=True):
         st.success("Prediction Completed!")
         col1, col2 = st.columns(2)
         with col1:
-            # Thay thế dòng 95 bằng đoạn code này
             MAE_error = 4.80
-            st.metric(
-            label="Predicted Punching Shear Capacity (Vp)", 
-            value=f"{prediction_real:.2f} kN", 
-            delta=f"Expected Error (MAE): ± {MAE_error} kN",
-            delta_color="off")
+            # 1. Tên nhãn (Label) ở trên cùng
+            st.markdown("<p style='font-size: 14px; margin-bottom: 0px; color: #FAFAFA;'>Predicted Punching Shear Capacity (Vp)</p>", unsafe_allow_html=True)
+            # 2. Giá trị lực (Value) to và Sai số MAE nhỏ nằm ngang hàng bên phải
+            st.markdown(
+            f"<h1 style='margin-top: 0px; margin-bottom: 0px; display: inline-block;'>{prediction_real:.2f} kN</h1>"
+            f"<span style='font-size: 15px; color: #A5A5A5; margin-left: 15px;'>Expected Error (MAE): ± {MAE_error} kN</span>", 
+            unsafe_allow_html=True
+            )
+            # 3. Thông số R² màu xanh lục ở bên dưới
+            st.markdown("<p style='font-size: 14px; color: #09AB3B; margin-top: 5px;'>↑ ANN Model (R² = 0.99)</p>", unsafe_allow_html=True)
         with col2:
             st.info(f"Total Slab Thickness: {tc + tECC:.1f} mm")
             
