@@ -121,4 +121,4 @@ if run_button:
         if os.path.exists(image_path):
             st.image(image_path, use_container_width=True, caption="Fig 1. Geometric parameters and SHAP-based feature importance analysis")
         else:
-            st.warning("⚠️ Không tìm thấy file ảnh 'slab_shap_info.PNG' trong thư mục.")
+            st.warning("⚠️ Không tìm thấy file ảnh 'slab_shap_info.png' trong thư mục.")
