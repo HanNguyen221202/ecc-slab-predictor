@@ -40,7 +40,7 @@ except Exception as e:
 
 # 3. MAIN PAGE INPUT PARAMETERS (Giao diện ngang)
 st.markdown("---")
-st.header("⚙️ CẤU HÌNH THAM SỐ ĐẦU VÀO (INPUT PARAMETERS)")
+st.header("⚙️ INPUT PARAMETERS")
 
 # Tạo 3 cột với chiều rộng bằng nhau
 col1, col2, col3 = st.columns(3)
@@ -102,7 +102,7 @@ if st.button("🚀 RUN PREDICTION", use_container_width=True):
 # 4. DATA PROCESSING & PREDICTION
 input_data = np.array([[d, c1, c2_c1, L_d, alpha_s, fc_c, Ec_c, fc_ECC, Ec_ECC, tc, tECC, fy, mu]])
 
-if st.sidebar.button("🚀 RUN PREDICTION", use_container_width=True):
+if st.expander.button("🚀 RUN PREDICTION", use_container_width=True):
     with st.spinner("Analyzing data..."):
         input_scaled = (input_data - X_min) / (X_max - X_min)
         prediction_norm = model.predict(input_scaled)
