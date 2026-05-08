@@ -102,7 +102,7 @@ if run_button:
         col_res1, col_res2 = st.columns(2)
         with col_res1:
             MAE_error = 4.80
-            st.markdown("#### <p style='font-size: 14px; margin-bottom: 0px; color: #FAFAFA;'>Predicted Punching Shear Capacity of ECC-Strengthened Flat Slabs (Vp)</p>", unsafe_allow_html=True)
+            st.markdown("## <p style='font-size: 14px; margin-bottom: 0px; color: #FAFAFA;'>Predicted Punching Shear Capacity of ECC-Strengthened Flat Slabs (Vp)</p>", unsafe_allow_html=True)
             st.markdown(
                 f"<div style='display: flex; align-items: baseline; gap: 8px; margin-bottom: 0px;'>"
                 f"<span style='font-size: 40px; font-weight: bold;'>{prediction_real:.2f} kN</span>"
