@@ -38,47 +38,66 @@ except Exception as e:
     st.error(f"INITIALIZATION ERROR: {e}")
     st.stop()
 
-# 3. SIDEBAR (INPUT PARAMETERS)
-st.sidebar.header("📥 INPUT PARAMETERS")
+# 3. MAIN PAGE INPUT PARAMETERS (Giao diện ngang)
+st.markdown("---")
+st.header("⚙️ CẤU HÌNH THAM SỐ ĐẦU VÀO (INPUT PARAMETERS)")
 
-st.sidebar.subheader("1. Thickness & Effective Depth")
-# Đã xóa .0 để lấy số nguyên
-tc = st.sidebar.slider("Concrete thickness - tc (mm)", 100, 160, 100)
-tECC = st.sidebar.slider("ECC thickness - tECC (mm)", 30, 90, 30)
+# Tạo 3 cột với chiều rộng bằng nhau
+col1, col2, col3 = st.columns(3)
 
-cover = 15 # Lớp bảo vệ số nguyên
-d = tc - cover
-st.sidebar.info(f"💡 Slab's effective height (d) auto-calculated: **{d} mm**")
+# ================= CỘT 1 =================
+with col1:
+    st.subheader("1. Thickness & Effective Depth")
+    tc = st.slider("Concrete thickness - tc (mm)", 100, 160, 100)
+    tECC = st.slider("ECC thickness - tECC (mm)", 30, 90, 30)
+    
+    cover = 15
+    d = tc - cover
+    st.info(f"💡 Slab's effective height (d) auto-calculated: **{d} mm**")
 
-st.sidebar.subheader("2. Geometry Configuration")
-c1 = st.sidebar.slider("Column's short side dimension - c1 (mm)", 150, 250, 150)
-c2_c1 = st.sidebar.slider("Long-to-short side dimension ratio - c2/c1", 1.0, 1.67, 1.0)
+    st.subheader("4. ECC Layer Properties")
+    fc_ECC = st.slider("ECC compressive strength - f'c,ECC (MPa)", 31, 60, 31)
+    # Tự động tính Ec_ECC
+    Ec_ECC = int(np.interp(fc_ECC, [31, 45, 60], [14000, 17000, 20000]))
+    st.info(f"💡 Elastic modulus of ECC - Ec,ECC auto-calculated: **{Ec_ECC} MPa**")
 
-# XÓA SLIDER L/d. Tính tự động vì L = 950 mm (cố định theo bài báo)
-L_d = round(950 / d, 3) 
-st.sidebar.info(f"💡 Shear span to effective depth ratio (L/d) auto-calculated: **{L_d}**")
+# ================= CỘT 2 =================
+with col2:
+    st.subheader("2. Geometry Configuration")
+    c1 = st.slider("Column's short side dimension - c1 (mm)", 150, 250, 150)
+    c2_c1 = st.slider("Long-to-short side dimension ratio - c2/c1", 1.0, 1.67, 1.0)
+    
+    L_d = round(950 / d, 3)
+    st.info(f"💡 Shear span to effective depth ratio (L/d) auto-calculated: **{L_d}**")
+    
+    alpha_s = st.selectbox("Loading location - \u03B1s (2: Corner, 3: Edge, 4: Interior)", [2.0, 3.0, 4.0], index=2)
 
-alpha_s = st.sidebar.selectbox("Loading location - αs (2: Corner, 3: Edge, 4: Interior)", [2.0, 3.0, 4.0], index=2)
+# ================= CỘT 3 =================
+with col3:
+    st.subheader("3. Normal Concrete (NC) Properties")
+    fc_c = st.slider("Concrete compressive strength - f'c,c (MPa)", 30, 60, 30)
+    # Tự động tính Ec_c
+    Ec_c = int(4700 * np.sqrt(fc_c))
+    st.info(f"💡 Elastic modulus of concrete - Ec,c auto-calculated: **{Ec_c} MPa**")
 
-st.sidebar.subheader("3. Normal Concrete (NC) Properties")
-fc_c = st.sidebar.slider("Concrete compressive strength - f'c,c (MPa)", 30, 60, 30)
-# Tự động tính Ec_c
-Ec_c = int(4700 * np.sqrt(fc_c))
-st.sidebar.info(f"💡 Elastic modulus of concrete - Ec,c auto-calculated: **{Ec_c} MPa**")
+    st.subheader("5. Reinforcement Details")
+    fy = st.slider("Rebar yield strength - fy (MPa)", 456, 750, 456)
+    mu = st.slider("Reinforcement ratio - \u03BC (%)", 1.227, 2.454, 1.227, step=0.001)
 
-st.sidebar.subheader("4. ECC Layer Properties")
-# Đưa default về 31 để khớp với sàn U3 gốc
-fc_ECC = st.sidebar.slider("ECC compressive strength - f'c,ECC (MPa)", 31, 60, 31) 
-# Tự động tính Ec_ECC
-Ec_ECC = int(np.interp(fc_ECC, [31, 45, 60], [14000, 17000, 20000]))
-st.sidebar.info(f"💡 Elastic modulus of ECC - Ec,ECC auto-calculated: **{Ec_ECC} MPa**")
+st.markdown("---")
 
-st.sidebar.subheader("5. Reinforcement Details")
-# Đưa default về 456 để khớp với sàn U3 gốc
-fy = st.sidebar.slider("Rebar yield strength - fy (MPa)", 456, 750, 456) 
+# 4. DATA PROCESSING & PREDICTION
+input_data = np.array([[d, c1, c2_c1, L_d, alpha_s, fc_c, Ec_c, fc_ECC, Ec_ECC, tc, tECC, fy, mu]])
 
-# SỬA LỖI NGHIÊM TRỌNG: Thiết lập lại min/max và step cho mu để khớp tuyệt đối với Dataset!
-mu = st.sidebar.slider("Reinforcement ratio - μ (%)", 1.227, 2.454, 1.227, step=0.001)
+# Đặt nút bấm ở giữa hoặc để nó trải rộng toàn màn hình bên dưới các cột
+if st.button("🚀 RUN PREDICTION", use_container_width=True):
+    with st.spinner("Analyzing data..."):
+        # Phẩn xử lý logic (scale data, predict) giữ nguyên như cũ của bạn
+        input_scaled = (input_data - X_min) / (X_max - X_min)
+        prediction_norm = model.predict(input_scaled)
+        prediction_real = prediction_norm[0][0] * (y_max - y_min) + y_min
+        
+        # In kết quả... (Giữ nguyên phần code in kết quả của bạn ở đây)
 
 # 4. DATA PROCESSING & PREDICTION
 input_data = np.array([[d, c1, c2_c1, L_d, alpha_s, fc_c, Ec_c, fc_ECC, Ec_ECC, tc, tECC, fy, mu]])
