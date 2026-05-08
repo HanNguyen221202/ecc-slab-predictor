@@ -39,10 +39,8 @@ except Exception as e:
     st.stop()
 
 # 3. MAIN PAGE INPUT PARAMETERS (Thanh trượt mở rộng)
-st.markdown("---")
-
 # Tạo thanh trượt bằng st.expander
-with st.expander("⚙️ CẤU HÌNH THAM SỐ ĐẦU VÀO (Bấm để Thu gọn / Mở rộng)", expanded=True):
+with st.expander("⚙️ INPUT PARAMETERS (Click to Expand / Collapse)", expanded=True):
     
     # Tạo 3 cột bên trong thanh trượt
     col1, col2, col3 = st.columns(3)
