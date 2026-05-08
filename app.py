@@ -40,7 +40,7 @@ except Exception as e:
 
 # 3. MAIN PAGE INPUT PARAMETERS (Thanh trượt mở rộng)
 # Tạo thanh trượt bằng st.expander
-with st.expander("### ⚙️ INPUT PARAMETERS (Click to Expand / Collapse)", expanded=True):
+with st.expander("**⚙️ INPUT PARAMETERS (Click to Expand / Collapse)**", expanded=True):
     
     # Tạo 3 cột bên trong thanh trượt
     col1, col2, col3 = st.columns(3)
