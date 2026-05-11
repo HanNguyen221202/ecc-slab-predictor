@@ -31,13 +31,13 @@ st.markdown(
     div[data-testid="stThumbValue"], 
     div[data-testid="stTickBarMin"], 
     div[data-testid="stTickBarMax"] {
-        font-size: 20px !important; /* Tăng/giảm số này để chỉnh cỡ chữ của số */
+        font-size: 24px !important; /* Tăng/giảm số này để chỉnh cỡ chữ của số */
         font-weight: 500 !important;
     }
 
     /* 5. Cỡ chữ của các hộp TEXT tự động tính toán (st.info) */
     div[data-testid="stAlert"] p {
-        font-size: 20px !important; /* Tăng/giảm số này để chỉnh cỡ chữ dòng auto-calculated */
+        font-size: 18px !important; /* Tăng/giảm số này để chỉnh cỡ chữ dòng auto-calculated */
     }
     </style>
     """,
