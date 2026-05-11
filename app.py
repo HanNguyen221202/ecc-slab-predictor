@@ -7,7 +7,7 @@ st.markdown(
     <style>
     /* 1. Kích thước chữ của các mục lớn (st.subheader) */
     h3 {
-        font-size: 22px !important;
+        font-size: 26px !important;
         font-weight: 600 !important;
         color: #4da6ff !important; 
     }
@@ -17,7 +17,7 @@ st.markdown(
     .stSelectbox label p,
     label[data-testid="stWidgetLabel"] p,
     div[data-testid="stWidgetLabel"] p {
-        font-size: 19px !important; 
+        font-size: 24px !important; 
     }
     
     /* 3. Tùy chỉnh khoảng cách thừa cho gọn */
@@ -33,13 +33,13 @@ st.markdown(
     div[data-testid="stTickBarMin"], 
     div[data-testid="stTickBarMax"],
     .stSlider span {
-        font-size: 19px !important; /* Bạn có thể chỉnh số 18px này to nhỏ tùy ý */
+        font-size: 24px !important; /* Bạn có thể chỉnh số 18px này to nhỏ tùy ý */
         font-weight: 600 !important; /* Làm số in đậm lên cho dễ nhìn */
     }
 
     /* 5. Cỡ chữ của các hộp TEXT tự động tính toán (st.info) */
     div[data-testid="stAlert"] p {
-        font-size: 19px !important;
+        font-size: 24px !important;
     }
     </style>
     """,
@@ -47,7 +47,7 @@ st.markdown(
 )
 # 1. PAGE CONFIGURATION
 st.set_page_config(page_title="ECC-Slab Predictor", layout="wide")
-st.title("Prediction of Punching Shear of ECC-Strengthened Flat Slabs")
+st.title("Prediction of Punching Shear Capacity of ECC-Strengthened Flat Slabs")
 st.markdown("##### **A Product Developed by:** Dr. Cong-Luyen Nguyen | Ngoc Han Nguyen & Duc Nhan Hoang")
 st.markdown("---")
 
