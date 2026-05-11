@@ -7,7 +7,7 @@ st.markdown(
     <style>
     /* 1. Giảm kích thước chữ của các mục lớn (st.subheader) */
     h3 {
-        font-size: 20px !important;
+        font-size: 22px !important;
         font-weight: 600 !important;
         color: #4da6ff !important; 
     }
@@ -33,7 +33,7 @@ st.markdown(
 # 1. PAGE CONFIGURATION
 st.set_page_config(page_title="ECC-Slab Predictor", layout="wide")
 st.title("Prediction of Punching Shear of ECC-Strengthened Flat Slabs")
-st.markdown("##### **A Research Product by:** Dr. Cong-Luyen Nguyen | Ngoc Han Nguyen & Duc Nhan Hoang")
+st.markdown("##### **A Product Developed by:** Dr. Cong-Luyen Nguyen | Ngoc Han Nguyen & Duc Nhan Hoang")
 st.markdown("---")
 
 # 2. LOAD MODEL AND SCALER PARAMS
