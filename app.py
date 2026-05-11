@@ -5,20 +5,23 @@ from tensorflow.keras.models import load_model
 st.markdown(
     """
     <style>
-    /* 1. Giảm kích thước chữ của các mục lớn (st.subheader - mặc định là thẻ h3) */
+    /* 1. Giảm kích thước chữ của các mục lớn (st.subheader) */
     h3 {
-        font-size: 22px !important; /* Giảm số này nếu muốn nhỏ hơn nữa (mặc định của Streamlit thường là 24px) */
+        font-size: 16px !important;
         font-weight: 600 !important;
-        color: #4da6ff !important; /* Bạn có thể đổi màu chữ ở đây nếu muốn, hiện đang để màu xanh nhạt cho nổi */
+        color: #4da6ff !important; 
     }
 
-    /* 2. Tăng kích thước chữ của các mục nhỏ (Label của thanh trượt st.slider và st.selectbox) */
+    /* 2. Tăng kích thước chữ của các mục nhỏ (Label của Slider và Selectbox) */
+    /* Mở rộng vùng chọn CSS để bao trùm mọi phiên bản Streamlit */
+    .stSlider label p, 
+    .stSelectbox label p,
+    label[data-testid="stWidgetLabel"] p,
     div[data-testid="stWidgetLabel"] p {
-        font-size: 24px !important; /* Tăng số này nếu muốn chữ to hơn (mặc định thường là 14px) */
-        font-weight: normal !important;
+        font-size: 18px !important; 
     }
     
-    /* Tùy chỉnh thêm: Giảm khoảng cách thừa giữa mục lớn và mục nhỏ cho gọn */
+    /* 3. Tùy chỉnh thêm: Giảm khoảng cách thừa giữa mục lớn và mục nhỏ cho gọn */
     .stSlider, .stSelectbox {
         margin-top: -10px !important; 
     }
@@ -29,7 +32,7 @@ st.markdown(
 
 # 1. PAGE CONFIGURATION
 st.set_page_config(page_title="ECC-Slab Predictor", layout="wide")
-st.title("Artificial Neural Network (ANN) for Punching Shear Prediction of ECC-Strengthened Flat Slabs")
+st.title("Prediction of Punching Shear of ECC-Strengthened Flat Slabs")
 st.markdown("##### **A Research Product by:** Dr. Cong-Luyen Nguyen | Ngoc Han Nguyen & Duc Nhan Hoang")
 st.markdown("---")
 
