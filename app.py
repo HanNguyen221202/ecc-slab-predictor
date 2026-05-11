@@ -7,7 +7,7 @@ st.markdown(
     <style>
     /* 1. Giảm kích thước chữ của các mục lớn (st.subheader - mặc định là thẻ h3) */
     h3 {
-        font-size: 30px !important; /* Giảm số này nếu muốn nhỏ hơn nữa (mặc định của Streamlit thường là 24px) */
+        font-size: 22px !important; /* Giảm số này nếu muốn nhỏ hơn nữa (mặc định của Streamlit thường là 24px) */
         font-weight: 600 !important;
         color: #4da6ff !important; /* Bạn có thể đổi màu chữ ở đây nếu muốn, hiện đang để màu xanh nhạt cho nổi */
     }
