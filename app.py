@@ -2,6 +2,30 @@ import streamlit as st
 import numpy as np
 import os
 from tensorflow.keras.models import load_model
+st.markdown(
+    """
+    <style>
+    /* 1. Giảm kích thước chữ của các mục lớn (st.subheader - mặc định là thẻ h3) */
+    h3 {
+        font-size: 18px !important; /* Giảm số này nếu muốn nhỏ hơn nữa (mặc định của Streamlit thường là 24px) */
+        font-weight: 600 !important;
+        color: #4da6ff !important; /* Bạn có thể đổi màu chữ ở đây nếu muốn, hiện đang để màu xanh nhạt cho nổi */
+    }
+
+    /* 2. Tăng kích thước chữ của các mục nhỏ (Label của thanh trượt st.slider và st.selectbox) */
+    div[data-testid="stWidgetLabel"] p {
+        font-size: 16px !important; /* Tăng số này nếu muốn chữ to hơn (mặc định thường là 14px) */
+        font-weight: normal !important;
+    }
+    
+    /* Tùy chỉnh thêm: Giảm khoảng cách thừa giữa mục lớn và mục nhỏ cho gọn */
+    .stSlider, .stSelectbox {
+        margin-top: -10px !important; 
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # 1. PAGE CONFIGURATION
 st.set_page_config(page_title="ECC-Slab Predictor", layout="wide")
