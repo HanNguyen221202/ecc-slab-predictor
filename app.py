@@ -7,7 +7,7 @@ st.markdown(
     <style>
     /* 1. Giảm kích thước chữ của các mục lớn (st.subheader) */
     h3 {
-        font-size: 16px !important;
+        font-size: 20px !important;
         font-weight: 600 !important;
         color: #4da6ff !important; 
     }
@@ -18,7 +18,7 @@ st.markdown(
     .stSelectbox label p,
     label[data-testid="stWidgetLabel"] p,
     div[data-testid="stWidgetLabel"] p {
-        font-size: 18px !important; 
+        font-size: 20px !important; 
     }
     
     /* 3. Tùy chỉnh thêm: Giảm khoảng cách thừa giữa mục lớn và mục nhỏ cho gọn */
