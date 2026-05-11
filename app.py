@@ -36,7 +36,7 @@ st.markdown(
     [data-baseweb="select"] span,
     ul[data-baseweb="menu"] li,
     ul[data-baseweb="menu"] li span {
-        font-size: 22px !important; /* Tăng cỡ chữ con số đang hiển thị và danh sách xổ xuống */
+        font-size: 20px !important; /* Tăng cỡ chữ con số đang hiển thị và danh sách xổ xuống */
         font-weight: 600 !important; /* Ép in đậm */
     }
 
