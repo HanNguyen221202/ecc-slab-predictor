@@ -5,15 +5,14 @@ from tensorflow.keras.models import load_model
 st.markdown(
     """
     <style>
-    /* 1. Giảm kích thước chữ của các mục lớn (st.subheader) */
+    /* 1. Kích thước chữ của các mục lớn (st.subheader) */
     h3 {
         font-size: 22px !important;
         font-weight: 600 !important;
         color: #4da6ff !important; 
     }
 
-    /* 2. Tăng kích thước chữ của các mục nhỏ (Label của Slider và Selectbox) */
-    /* Mở rộng vùng chọn CSS để bao trùm mọi phiên bản Streamlit */
+    /* 2. Kích thước chữ của các mục nhỏ (Label của Slider và Selectbox) */
     .stSlider label p, 
     .stSelectbox label p,
     label[data-testid="stWidgetLabel"] p,
@@ -21,9 +20,24 @@ st.markdown(
         font-size: 20px !important; 
     }
     
-    /* 3. Tùy chỉnh thêm: Giảm khoảng cách thừa giữa mục lớn và mục nhỏ cho gọn */
+    /* 3. Tùy chỉnh khoảng cách thừa cho gọn */
     .stSlider, .stSelectbox {
         margin-top: -10px !important; 
+    }
+
+    /* ================= THÊM MỚI TỪ ĐÂY ================= */
+
+    /* 4. Cỡ chữ của các CON SỐ trên thanh trượt (100, 160...) */
+    div[data-testid="stThumbValue"], 
+    div[data-testid="stTickBarMin"], 
+    div[data-testid="stTickBarMax"] {
+        font-size: 20px !important; /* Tăng/giảm số này để chỉnh cỡ chữ của số */
+        font-weight: 500 !important;
+    }
+
+    /* 5. Cỡ chữ của các hộp TEXT tự động tính toán (st.info) */
+    div[data-testid="stAlert"] p {
+        font-size: 20px !important; /* Tăng/giảm số này để chỉnh cỡ chữ dòng auto-calculated */
     }
     </style>
     """,
