@@ -26,15 +26,14 @@ st.markdown(
     }
 
     /* 4. Cỡ chữ của các CON SỐ trên thanh trượt (100, 160...) - ĐÃ NÂNG CẤP MẠNH HƠN */
-    .stSlider [data-testid="stThumbValue"], 
-    .stSlider [data-testid="stTickBarMin"], 
-    .stSlider [data-testid="stTickBarMax"],
     div[data-testid="stThumbValue"], 
+    div[data-testid="stThumbValue"] *,
     div[data-testid="stTickBarMin"], 
+    div[data-testid="stTickBarMin"] *,
     div[data-testid="stTickBarMax"],
-    .stSlider span {
-        font-size: 24px !important; /* Bạn có thể chỉnh số 18px này to nhỏ tùy ý */
-        font-weight: 600 !important; /* Làm số in đậm lên cho dễ nhìn */
+    div[data-testid="stTickBarMax"] * {
+        font-size: 22px !important; /* Tăng kích thước lên 20px */
+        font-weight: bold !important; /* Ép in đậm */
     }
 
     /* 5. Cỡ chữ của các hộp TEXT tự động tính toán (st.info) */
