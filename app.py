@@ -33,7 +33,7 @@ st.markdown(
     div[data-testid="stTickBarMin"], 
     div[data-testid="stTickBarMax"],
     .stSlider span {
-        font-size: 19px !important; /* Bạn có thể chỉnh số 18px này to nhỏ tùy ý */
+        font-size: 30px !important; /* Bạn có thể chỉnh số 18px này to nhỏ tùy ý */
         font-weight: 600 !important; /* Làm số in đậm lên cho dễ nhìn */
     }
 
