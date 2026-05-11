@@ -14,7 +14,7 @@ st.markdown(
 
     /* 2. Tăng kích thước chữ của các mục nhỏ (Label của thanh trượt st.slider và st.selectbox) */
     div[data-testid="stWidgetLabel"] p {
-        font-size: 20px !important; /* Tăng số này nếu muốn chữ to hơn (mặc định thường là 14px) */
+        font-size: 24px !important; /* Tăng số này nếu muốn chữ to hơn (mặc định thường là 14px) */
         font-weight: normal !important;
     }
     
