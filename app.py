@@ -31,6 +31,14 @@ st.markdown(
         font-size: 22px !important; 
         font-weight: 600 !important; /* Ép in đậm mức tối đa */
     }
+    /* 5. CỠ CHỮ BÊN TRONG HỘP CHỌN (SELECTBOX) */
+    [data-baseweb="select"] div,
+    [data-baseweb="select"] span,
+    ul[data-baseweb="menu"] li,
+    ul[data-baseweb="menu"] li span {
+        font-size: 22px !important; /* Tăng cỡ chữ con số đang hiển thị và danh sách xổ xuống */
+        font-weight: 600 !important; /* Ép in đậm */
+    }
 
     /* 5. Cỡ chữ của các hộp TEXT tự động tính toán (st.info) */
     div[data-testid="stAlert"] p {
