@@ -26,14 +26,10 @@ st.markdown(
     }
 
     /* 4. Cỡ chữ của các CON SỐ trên thanh trượt (100, 160...) - ĐÃ NÂNG CẤP MẠNH HƠN */
-    div[data-testid="stThumbValue"], 
-    div[data-testid="stThumbValue"] *,
-    div[data-testid="stTickBarMin"], 
-    div[data-testid="stTickBarMin"] *,
-    div[data-testid="stTickBarMax"],
-    div[data-testid="stTickBarMax"] * {
-        font-size: 22px !important; /* Tăng kích thước lên 20px */
-        font-weight: bold !important; /* Ép in đậm */
+    [data-baseweb="slider"] div, 
+    [data-baseweb="slider"] span {
+        font-size: 22px !important; 
+        font-weight: 900 !important; /* Ép in đậm mức tối đa */
     }
 
     /* 5. Cỡ chữ của các hộp TEXT tự động tính toán (st.info) */
