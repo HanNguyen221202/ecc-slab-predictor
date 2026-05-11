@@ -17,7 +17,7 @@ st.markdown(
     .stSelectbox label p,
     label[data-testid="stWidgetLabel"] p,
     div[data-testid="stWidgetLabel"] p {
-        font-size: 20px !important; 
+        font-size: 19px !important; 
     }
     
     /* 3. Tùy chỉnh khoảng cách thừa cho gọn */
@@ -25,25 +25,26 @@ st.markdown(
         margin-top: -10px !important; 
     }
 
-    /* ================= THÊM MỚI TỪ ĐÂY ================= */
-
-    /* 4. Cỡ chữ của các CON SỐ trên thanh trượt (100, 160...) */
+    /* 4. Cỡ chữ của các CON SỐ trên thanh trượt (100, 160...) - ĐÃ NÂNG CẤP MẠNH HƠN */
+    .stSlider [data-testid="stThumbValue"], 
+    .stSlider [data-testid="stTickBarMin"], 
+    .stSlider [data-testid="stTickBarMax"],
     div[data-testid="stThumbValue"], 
     div[data-testid="stTickBarMin"], 
-    div[data-testid="stTickBarMax"] {
-        font-size: 24px !important; /* Tăng/giảm số này để chỉnh cỡ chữ của số */
-        font-weight: 500 !important;
+    div[data-testid="stTickBarMax"],
+    .stSlider span {
+        font-size: 19px !important; /* Bạn có thể chỉnh số 18px này to nhỏ tùy ý */
+        font-weight: 600 !important; /* Làm số in đậm lên cho dễ nhìn */
     }
 
     /* 5. Cỡ chữ của các hộp TEXT tự động tính toán (st.info) */
     div[data-testid="stAlert"] p {
-        font-size: 18px !important; /* Tăng/giảm số này để chỉnh cỡ chữ dòng auto-calculated */
+        font-size: 19px !important;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
-
 # 1. PAGE CONFIGURATION
 st.set_page_config(page_title="ECC-Slab Predictor", layout="wide")
 st.title("Prediction of Punching Shear of ECC-Strengthened Flat Slabs")
