@@ -29,7 +29,7 @@ st.markdown(
     [data-baseweb="slider"] div, 
     [data-baseweb="slider"] span {
         font-size: 22px !important; 
-        font-weight: 900 !important; /* Ép in đậm mức tối đa */
+        font-weight: 600 !important; /* Ép in đậm mức tối đa */
     }
 
     /* 5. Cỡ chữ của các hộp TEXT tự động tính toán (st.info) */
