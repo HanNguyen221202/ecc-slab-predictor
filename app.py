@@ -5,6 +5,15 @@ from tensorflow.keras.models import load_model
 st.markdown(
     """
     <style>
+    /* ========================================= */
+    /* 1. ĐỔI MÀU NỀN TỔNG THỂ (BACKGROUND)      */
+    /* ========================================= */
+    .stApp {
+        background-color: #2c2f33 !important; /* Đang để màu Xám Đen (Dark Gray) rất sang trọng */
+    }
+    
+    /* Nếu bạn thích nền Xám Sáng (Light Gray), hãy xóa dòng trên và dùng dòng dưới này: */
+    /* background-color: #f0f2f6 !important; */
     /* 1. Kích thước chữ của các mục lớn (st.subheader) */
     h3 {
         font-size: 22px !important;
@@ -33,7 +42,7 @@ st.markdown(
     div[data-testid="stTickBarMin"], 
     div[data-testid="stTickBarMax"],
     .stSlider span {
-        font-size: 30px !important; /* Bạn có thể chỉnh số 18px này to nhỏ tùy ý */
+        font-size: 19px !important; /* Bạn có thể chỉnh số 18px này to nhỏ tùy ý */
         font-weight: 600 !important; /* Làm số in đậm lên cho dễ nhìn */
     }
 
