@@ -159,8 +159,7 @@ if run_button:
         with col_res2:
             st.info(f"Total Slab Thickness: {tc + tECC:.1f} mm")
             
-        st.markdown("---")
-        st.markdown("### Structural Configuration & Explainable AI (SHAP)")
-        
-        image_path = os.path.join(BASE_DIR, 'slab_shap_info.png')
-        st.image(image_path, use_container_width=True, caption="Geometric parameters and SHAP-based feature importance analysis")
+st.markdown("---")
+st.markdown("### Structural Configuration & Explainable AI (SHAP)")
+image_path = os.path.join(BASE_DIR, 'slab_shap_info.png')
+st.image(image_path, use_container_width=True, caption="Geometric parameters and SHAP-based feature importance analysis")
